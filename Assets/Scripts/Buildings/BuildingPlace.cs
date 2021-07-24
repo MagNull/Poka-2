@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using UIControllers;
 using UnityEngine;
 using Zenject;
 
 namespace Buildings
 {
+    [RequireComponent(typeof(BuildingPlaceUIController))]
     public class BuildingPlace : MonoBehaviour, IZoomable
     {
         [SerializeField] private GameObject _finishedBuilding;
@@ -16,28 +18,34 @@ namespace Buildings
         [Header("Price To Build")] 
         [SerializeField] private int _goldToBuild;
         [SerializeField] private int _woodToBuild;
+        [SerializeField] private GameObject _neededBuilding;
 
         [Inject] private PlayerResources _playerResources;
-        private AbstractInterfaceController _interfaceController;
+        private AbstractUIController _uiController;
         private bool _isZoomed;
         private CameraZoom _cameraZoom;
+        
+        public Transform ZoomPosition => _zoomPosition;
+        public bool IsZoomed => _isZoomed;
 
-        private void OnMouseDown()
-        {
-            if (IsZoomed)
-            {
-                TryToBuild();
-            }
-        }
+        public GameObject FinishedBuilding => _finishedBuilding;
+
+        public int GoldToBuild => _goldToBuild;
+
+        public int WoodToBuild => _woodToBuild;
+
+        public GameObject NeededBuilding => _neededBuilding;
+        
 
         private void Awake()
         {
             _cameraZoom = Camera.main.GetComponent<CameraZoom>();
+            _uiController = GetComponent<AbstractUIController>();
         }
 
-        private void TryToBuild()
+        public void TryToBuild()
         {
-            if (CheckPrice())
+            if (CheckPrice() && CheckNeededBuilding())
             {
                 TakeResources();
                 Build();
@@ -46,37 +54,40 @@ namespace Buildings
 
         private void TakeResources()
         {
-            _playerResources.GoldAmount -= 2 * _goldToBuild;
-            _playerResources.WoodAmount -= _woodToBuild;
+            _playerResources.GoldAmount -= GoldToBuild;
+            _playerResources.WoodAmount -= WoodToBuild;
         }
 
         private void Build()
         {
-            _finishedBuilding.SetActive(true);
-            _finishedBuilding.transform.parent = null;
-            _cameraZoom.Zoom(_finishedBuilding.GetComponent<IZoomable>());
+            FinishedBuilding.SetActive(true);
+            FinishedBuilding.transform.parent = null;
+            _cameraZoom.Zoom(FinishedBuilding.GetComponent<IZoomable>());
             _buildingVFX.Play();
             Destroy(gameObject);
         }
 
         private bool CheckPrice()
         {
-            return _playerResources.GoldAmount >= _goldToBuild &&
-                   _playerResources.WoodAmount >= _woodToBuild;
+            return _playerResources.GoldAmount >= GoldToBuild &&
+                   _playerResources.WoodAmount >= WoodToBuild;
         }
 
-        public Transform ZoomPosition => _zoomPosition;
-        public bool IsZoomed => _isZoomed;
-        
+        private bool CheckNeededBuilding()
+        {
+            if(!NeededBuilding) return true;
+            return NeededBuilding.activeSelf;
+        }
+
         public void Zoom()
         {
-            //_interfaceController.OpenInterface();
+            _uiController.OpenInterface();
             _isZoomed = true;
         }
 
         public void Unzoom()
         {
-            //_interfaceController.CloseInterface();
+            _uiController.CloseInterface();
             _isZoomed = false;
         }
         

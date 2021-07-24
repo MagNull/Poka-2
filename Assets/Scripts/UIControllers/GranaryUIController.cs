@@ -1,12 +1,11 @@
-﻿using DG.Tweening;
-using TMPro;
+﻿using Buildings;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Buildings
+namespace UIControllers
 {
-    public class GranaryInterfaceController : AbstractInterfaceController
+    public class GranaryUIController : AbstractUIController
     {
         [SerializeField] private Button _upgradeButton;
         private Granary _granary;
@@ -29,12 +28,14 @@ namespace Buildings
         public override void OpenInterface()
         {
             base.OpenInterface();
+            _upgradeButton.gameObject.SetActive(true);
             _upgradeButton.onClick.AddListener(_granary.Upgrade);
         }
         
         public override void CloseInterface()
         {
             base.CloseInterface();
+            _upgradeButton.gameObject.SetActive(false);
             _upgradeButton.onClick.RemoveListener(_granary.Upgrade);
         }
         

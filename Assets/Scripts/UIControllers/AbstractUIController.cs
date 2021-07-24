@@ -2,9 +2,9 @@
 using TMPro;
 using UnityEngine;
 
-namespace Buildings
+namespace UIControllers
 {
-    public abstract class AbstractInterfaceController : MonoBehaviour
+    public abstract class AbstractUIController : MonoBehaviour
     {
         [SerializeField] protected Canvas _buildingInterfaceCanvas;
         [SerializeField] protected GameObject _resourceIcon;

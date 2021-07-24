@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using TMPro;
+using UIControllers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -8,7 +9,7 @@ using ITickable = Interfaces.ITickable;
 
 namespace Buildings
 {
-    [RequireComponent(typeof(ResourceBuildingInterfaceController), typeof(DragOnClick))]
+    [RequireComponent(typeof(ResourceBuildingUIController), typeof(DragOnClick))]
     public class ResourceBuilding : MonoBehaviour, ITickable, IUpgradeable, IZoomable
     {
         [SerializeField] private float _tickInterval = 0;
@@ -24,7 +25,7 @@ namespace Buildings
 
         private DragOnClick _dragOnClick;
         private string _resourceName;
-        private ResourceBuildingInterfaceController _interfaceController;
+        private AbstractUIController _uiController;
 
         public string ResourceName => _resourceName;
 
@@ -43,13 +44,13 @@ namespace Buildings
         
         public void Zoom()
         {
-            _interfaceController.OpenInterface();
+            _uiController.OpenInterface();
             _isZoomed = true;
         }
 
         public void Unzoom()
         {
-            _interfaceController.CloseInterface();
+            _uiController.CloseInterface();
             _isZoomed = false;
         }
 
@@ -76,7 +77,7 @@ namespace Buildings
 
         protected void Awake()
         {
-            _interfaceController = GetComponent<ResourceBuildingInterfaceController>();
+            _uiController = GetComponent<ResourceBuildingUIController>();
             _dragOnClick = GetComponent<DragOnClick>();
         }
 

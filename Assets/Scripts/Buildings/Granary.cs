@@ -1,18 +1,19 @@
 ﻿using System;
 using Interfaces;
+using UIControllers;
 using UnityEngine;
 using Zenject;
 
 namespace Buildings
 {
-    [RequireComponent(typeof(GranaryInterfaceController))]
+    [RequireComponent(typeof(GranaryUIController))]
     public class Granary : MonoBehaviour, IUpgradeable, IStorage<int>, IZoomable
     {
         [SerializeField] private Transform _zoomTargetTransform;
         private bool _isZoomed;
 
         [Inject] private PlayerResources _playerResources;
-        private GranaryInterfaceController _interfaceController;
+        private AbstractUIController _uiController;
 
         [SerializeField] private int _maxFoodPerUpgrade;
         
@@ -21,13 +22,13 @@ namespace Buildings
         
         public void Zoom()
         {
-            _interfaceController.OpenInterface();
+            _uiController.OpenInterface();
             _isZoomed = true;
         }
 
         public void Unzoom()
         {
-            _interfaceController.CloseInterface();
+            _uiController.CloseInterface();
             _isZoomed = false;
         }
 
@@ -38,7 +39,7 @@ namespace Buildings
 
         private void Awake()
         {
-            _interfaceController = GetComponent<GranaryInterfaceController>();
+            _uiController = GetComponent<GranaryUIController>();
         }
 
         private void Start()

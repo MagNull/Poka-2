@@ -1,15 +1,11 @@
-﻿using System;
-using DG.Tweening;
-using Interfaces;
-using TMPro;
+﻿using Buildings;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-namespace Buildings
+namespace UIControllers
 {
     [RequireComponent(typeof(ResourceBuilding))]
-    public class ResourceBuildingInterfaceController : AbstractInterfaceController
+    public class ResourceBuildingUIController : AbstractUIController
     {
         [SerializeField] protected Button _upgradeButton;
         private ResourceBuilding _resourceBuilding;
@@ -30,13 +26,14 @@ namespace Buildings
         public override void OpenInterface()
         {
             base.OpenInterface();
+            _upgradeButton.gameObject.SetActive(true);
             _upgradeButton.onClick.AddListener(_resourceBuilding.Upgrade);
         }
         
         public override void CloseInterface()
         {
             base.CloseInterface();
-            
+            _upgradeButton.gameObject.SetActive(false);
             _upgradeButton.onClick.RemoveListener(_resourceBuilding.Upgrade);
         }
 
