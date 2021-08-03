@@ -2,6 +2,6 @@
 {
     public interface ITickable
     {
-        public void Tick(int tickSize);
+        public void Tick(float tickSize);
     }
 }

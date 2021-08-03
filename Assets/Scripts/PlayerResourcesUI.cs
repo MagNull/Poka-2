@@ -8,21 +8,21 @@ public class PlayerResourcesUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _foodText;
     [SerializeField] private TextMeshProUGUI _humanText;
 
-    public void ChangeValue(ResourcesType resourcesType, int value, int max = 0)
+    public void ChangeValue(ResourcesType resourcesType, float value, int max = 0)
     {
         switch (resourcesType)
         {
             case ResourcesType.WOOD:
-                _woodText.text = value.ToString();
+                _woodText.text = ((int)value).ToString();
                 break;
             case ResourcesType.GOLD:
-                _goldText.text = value.ToString();
+                _goldText.text = ((int)value).ToString();
                 break;
             case ResourcesType.HUMANS:
-                _humanText.text = value.ToString();
+                _humanText.text = ((int)value).ToString();
                 break;
             case ResourcesType.FOOD:
-                _foodText.text = value + "/" + max;
+                _foodText.text = (int)value + "/" + max;
                 break;
         }
     }

@@ -7,7 +7,7 @@ using Zenject;
 namespace Buildings
 {
     [RequireComponent(typeof(GranaryUIController))]
-    public class Granary : MonoBehaviour, IUpgradeable, IStorage<int>, IZoomable
+    public class Granary : MonoBehaviour, IUpgradeable, IStorage<float>, IZoomable
     {
         [SerializeField] private Transform _zoomTargetTransform;
         private bool _isZoomed;
@@ -48,9 +48,9 @@ namespace Buildings
             _playerResources.MAXFoodAmount = 10;
         }
 
-        public int Get(int n)
+        public float Get(float n)
         {
-            int returningValue;
+            float returningValue;
             if (n >= _playerResources.FoodAmount)
             {
                 returningValue = _playerResources.FoodAmount;
@@ -65,7 +65,7 @@ namespace Buildings
             return returningValue;
         }
 
-        public void Add(int n)
+        public void Add(float n)
         {
             _playerResources.FoodAmount += n;
             _playerResources.FoodAmount = Mathf.Clamp(_playerResources.FoodAmount, 0, _playerResources.MAXFoodAmount);

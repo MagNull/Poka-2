@@ -136,10 +136,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tickInterval: 0.2
+  _minTickInterval: 0.05
   _passiveTickSize: 1
   _clickTickSize: 1
-  _timer: 0
   _resourcesType: 1
+  _upgradeLevel: 1
+  _tickIntervalDecreasePerLevel: 0.1
+  _levelsToUpgradeTickInterval: 16
+  _passiveTickIncreasePerLevel: 0.5
+  _levelsToUpgradePassiveTick: 5
+  _clickTickSizeIncreasePerLevel: 1
+  _levelsToUpgradeClickTickSize: 1
+  _woodCostUpgrade: 0
+  _woodCostIncrease: 0
+  _goldCostUpgrade: 0
+  _goldCostIncrease: 0
   _zoomTargetTransform: {fileID: 582525760}
 --- !u!198 &24312818 stripped
 ParticleSystem:
@@ -180,7 +191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: 29}
+  m_AnchoredPosition: {x: -21, y: 29}
   m_SizeDelta: {x: 620.1286, y: 70.1324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25958366
@@ -44396,7 +44407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.564, y: -181}
+  m_AnchoredPosition: {x: -10.436001, y: -181}
   m_SizeDelta: {x: 641.26, y: 70.1324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311657625
@@ -45566,7 +45577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.999989, y: -41.132004}
+  m_AnchoredPosition: {x: -21.000011, y: -41.132004}
   m_SizeDelta: {x: 620.1286, y: 70.1324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716345240
@@ -45948,7 +45959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.564, y: -111.259995}
+  m_AnchoredPosition: {x: -10.436001, y: -111.259995}
   m_SizeDelta: {x: 641.26, y: 70.1324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899838982
@@ -90769,8 +90780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -435.7063, y: 152.30812}
-  m_SizeDelta: {x: 668.3859, y: 475.3839}
+  m_AnchoredPosition: {x: -395.81555, y: 152.30812}
+  m_SizeDelta: {x: 748.1674, y: 475.3839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1718925395
 MonoBehaviour:
@@ -105428,10 +105439,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tickInterval: 1
+  _minTickInterval: 0.05
   _passiveTickSize: 1
   _clickTickSize: 1
-  _timer: 0
   _resourcesType: 3
+  _upgradeLevel: 1
+  _tickIntervalDecreasePerLevel: 0.1
+  _levelsToUpgradeTickInterval: 16
+  _passiveTickIncreasePerLevel: 0.5
+  _levelsToUpgradePassiveTick: 5
+  _clickTickSizeIncreasePerLevel: 1
+  _levelsToUpgradeClickTickSize: 1
+  _woodCostUpgrade: 0
+  _woodCostIncrease: 0
+  _goldCostUpgrade: 0
+  _goldCostIncrease: 0
   _zoomTargetTransform: {fileID: 9218681466155147966}
 --- !u!23 &195819036553274178
 MeshRenderer:
@@ -106884,10 +106906,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tickInterval: 1
+  _minTickInterval: 0.05
   _passiveTickSize: 1
   _clickTickSize: 1
-  _timer: 0
   _resourcesType: 0
+  _upgradeLevel: 1
+  _tickIntervalDecreasePerLevel: 0.1
+  _levelsToUpgradeTickInterval: 16
+  _passiveTickIncreasePerLevel: 0.5
+  _levelsToUpgradePassiveTick: 5
+  _clickTickSizeIncreasePerLevel: 1
+  _levelsToUpgradeClickTickSize: 1
+  _woodCostUpgrade: 50
+  _woodCostIncrease: 50
+  _goldCostUpgrade: 50
+  _goldCostIncrease: 50
   _zoomTargetTransform: {fileID: 1113742847701704080}
 --- !u!23 &1102244954178942068
 MeshRenderer:
@@ -124653,10 +124686,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tickInterval: 1
+  _minTickInterval: 0.05
   _passiveTickSize: 1
   _clickTickSize: 1
-  _timer: 0
   _resourcesType: 2
+  _upgradeLevel: 1
+  _tickIntervalDecreasePerLevel: 0.1
+  _levelsToUpgradeTickInterval: 16
+  _passiveTickIncreasePerLevel: 0.5
+  _levelsToUpgradePassiveTick: 5
+  _clickTickSizeIncreasePerLevel: 1
+  _levelsToUpgradeClickTickSize: 1
+  _woodCostUpgrade: 0
+  _woodCostIncrease: 0
+  _goldCostUpgrade: 0
+  _goldCostIncrease: 0
   _zoomTargetTransform: {fileID: 41492225}
   _granary: {fileID: 1302722199}
 --- !u!65 &9132480567062631799

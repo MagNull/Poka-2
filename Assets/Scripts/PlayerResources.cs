@@ -6,13 +6,13 @@ public class PlayerResources : ScriptableObject
 {
     public PlayerResourcesUI PlayerResourcesUI;
 
-    [SerializeField] private int _goldAmount;
-    [SerializeField] private int _foodAmount;
+    [SerializeField] private float _goldAmount;
+    [SerializeField] private float _foodAmount;
     [SerializeField] private int _maxFoodAmount;
-    [SerializeField] private int _woodAmount;
-    [SerializeField] private int _humansAmount;
+    [SerializeField] private float _woodAmount;
+    [SerializeField] private float _humansAmount;
     
-    public int GoldAmount
+    public float GoldAmount
     {
         get => _goldAmount;
         set
@@ -26,7 +26,7 @@ public class PlayerResources : ScriptableObject
         }
     }
 
-    public int FoodAmount
+    public float FoodAmount
     {
         get => _foodAmount;
         set
@@ -40,7 +40,7 @@ public class PlayerResources : ScriptableObject
         }
     }
 
-    public int WoodAmount
+    public float WoodAmount
     {
         get => _woodAmount;
         set
@@ -54,7 +54,7 @@ public class PlayerResources : ScriptableObject
         }
     }
 
-    public int HumansAmount
+    public float HumansAmount
     {
         get => _humansAmount;
         set

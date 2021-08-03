@@ -8,7 +8,7 @@ namespace Buildings
     public class Farm : ResourceBuilding
     {
         [SerializeField] private Granary _granary;
-        public override void Tick(int tickSize)
+        public override void Tick(float tickSize)
         {
             if(_granary.gameObject.activeSelf)_granary.Add(tickSize);
         }
