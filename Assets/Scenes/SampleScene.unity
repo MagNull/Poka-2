@@ -509,14 +509,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7803171745462721284, guid: 743fc551622034093a11efcbcb9d49fc, type: 3}
+  m_Sprite: {fileID: -8975857106225741371, guid: 8d59a835dfdb543498482459cb7c528c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -596,14 +596,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7803171745462721284, guid: 743fc551622034093a11efcbcb9d49fc, type: 3}
+  m_Sprite: {fileID: -8975857106225741371, guid: 8d59a835dfdb543498482459cb7c528c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44559,14 +44559,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7803171745462721284, guid: 743fc551622034093a11efcbcb9d49fc, type: 3}
+  m_Sprite: {fileID: -8975857106225741371, guid: 8d59a835dfdb543498482459cb7c528c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -45447,7 +45447,6 @@ GameObject:
   - component: {fileID: 1113742848298439189}
   - component: {fileID: 713870615}
   - component: {fileID: 713870617}
-  - component: {fileID: 713870616}
   m_Layer: 0
   m_Name: LumberMill
   m_TagString: Untagged
@@ -45474,20 +45473,6 @@ MonoBehaviour:
   - {fileID: 716345240}
   - {fileID: 899838982}
   _upgradeButton: {fileID: 924505554}
---- !u!114 &713870616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713870614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18831e1765be4ba7bcb43538a965447c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sizeChangeOnClickValue: 0
-  _sizeChangeOnClickTime: 0
 --- !u!114 &713870617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45500,7 +45485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18831e1765be4ba7bcb43538a965447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sizeChangeOnClickValue: 0.1
+  _sizeChangeOnClickValue: -0.1
   _sizeChangeOnClickTime: 0.16
 --- !u!23 &716067798
 MeshRenderer:
@@ -46082,7 +46067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shrinkTime: 0.1
-  _shrinkSize: 0.8
+  _shrinkSize: 0.85
 --- !u!114 &924505552 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1383994476759950947, guid: fd073e210912718488e4cbed1d484c34, type: 3}
@@ -46564,7 +46549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122685276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48, y: 0, z: -0.348}
+  m_LocalPosition: {x: -6.92, y: 0, z: -3.87}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47138,14 +47123,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7803171745462721284, guid: 743fc551622034093a11efcbcb9d49fc, type: 3}
+  m_Sprite: {fileID: -8975857106225741371, guid: 8d59a835dfdb543498482459cb7c528c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90939,7 +90924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18831e1765be4ba7bcb43538a965447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sizeChangeOnClickValue: 0.1
+  _sizeChangeOnClickValue: -0.1
   _sizeChangeOnClickTime: 0.16
 --- !u!1001 &1759583835
 PrefabInstance:
@@ -96189,7 +96174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shrinkTime: 0.2
-  _shrinkSize: 0.8
+  _shrinkSize: 0.85
 --- !u!1 &1979567133
 GameObject:
   m_ObjectHideFlags: 0
@@ -96296,7 +96281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18831e1765be4ba7bcb43538a965447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sizeChangeOnClickValue: 0.1
+  _sizeChangeOnClickValue: -0.1
   _sizeChangeOnClickTime: 0.16
 --- !u!4 &2002767611
 Transform:
@@ -114563,7 +114548,6 @@ GameObject:
   - component: {fileID: 5529705886544216487}
   - component: {fileID: 5529705886544216488}
   - component: {fileID: 5529705886544216490}
-  - component: {fileID: 5529705886544216489}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -114603,20 +114587,6 @@ MonoBehaviour:
   - {fileID: 716345240}
   - {fileID: 899838982}
   _upgradeButton: {fileID: 924505554}
---- !u!114 &5529705886544216489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5529705886544216486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18831e1765be4ba7bcb43538a965447c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sizeChangeOnClickValue: 0
-  _sizeChangeOnClickTime: 0
 --- !u!114 &5529705886544216490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114629,7 +114599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18831e1765be4ba7bcb43538a965447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sizeChangeOnClickValue: 0.1
+  _sizeChangeOnClickValue: -0.1
   _sizeChangeOnClickTime: 0.16
 --- !u!33 &5533842915224036908
 MeshFilter:
