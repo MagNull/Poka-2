@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace UnitsLogic
+namespace Unit_Scripts.Unit_State_Machine
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class UnitStateBehaviour : MonoBehaviour, IUnitsStateSwitcher
@@ -13,23 +12,25 @@ namespace UnitsLogic
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
         
-        private List<UnitState> _states;
-        private UnitState _currentState; 
+        private List<UnitsState> _states;
+        private UnitsState _currentState; 
             
         private void Awake()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            _animator = GetComponentInChildren<Animator>();
+            _animator = GetComponent<Animator>();
         }
 
         private void Start()
         {
-            _states = new List<UnitState>()
+            _states = new List<UnitsState>()
             {
                 new MovingState(_navMeshAgent, () => { return _target; }, _animator, this, 3),
-                new AttackingState(_navMeshAgent, () => { return _target; }, _animator, this)
+                new AttackingState(_navMeshAgent, () => { return _target; }, _animator, this),
+                new DyingState( () => { return _target; }, _animator, this)
             };
             _currentState = _states[0];
+            _currentState.OnEnterState();
         }
 
         private void Update()
@@ -38,9 +39,9 @@ namespace UnitsLogic
             _currentState.Work();
         }
 
-        public void SwitchState<T>() where T : UnitState
+        public void SwitchState<T>() where T : UnitsState
         {
-            UnitState state = _states.FirstOrDefault(s => s is T);
+            UnitsState state = _states.FirstOrDefault(s => s is T);
             _currentState.OnExitState();
             _currentState = state;
             _currentState.OnEnterState();
