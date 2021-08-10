@@ -22,8 +22,13 @@ namespace Unit_Scripts.Unit_State_Machine
     
         public override void Work()
         {
+            if (_getTarget.Invoke() == null)
+            {
+                _stateSwitcher.SwitchState<IdleState>();
+                return;
+            }
             _navMeshAgent.speed = _speed;
-            Debug.Log(_navMeshAgent.remainingDistance);
+            _navMeshAgent.SetDestination(_getTarget.Invoke().position);
             if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
             {
                 _stateSwitcher.SwitchState<AttackingState>();
@@ -32,7 +37,6 @@ namespace Unit_Scripts.Unit_State_Machine
 
         public override void OnEnterState()
         {
-            Debug.Log("Start Walk");
             _animator.SetBool(_walkToHash, true);
         }
 

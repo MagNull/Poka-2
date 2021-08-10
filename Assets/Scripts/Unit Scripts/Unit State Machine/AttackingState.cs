@@ -19,10 +19,16 @@ namespace Unit_Scripts.Unit_State_Machine
 
         public override void Work()
         {
+            if (_getTarget.Invoke() == null)
+            {
+                _stateSwitcher.SwitchState<IdleState>();
+                return;
+            }
             if (_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance)
             {
                 _stateSwitcher.SwitchState<MovingState>();
             }
+            _navMeshAgent.SetDestination(_getTarget.Invoke().position);
         }
 
         public override void OnEnterState()

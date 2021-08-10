@@ -10,7 +10,7 @@ using ITickable = Interfaces.ITickable;
 namespace Buildings
 {
     [RequireComponent(typeof(ResourceBuildingUIController), typeof(DragOnClick))]
-    public class ResourceBuilding : MonoBehaviour, ITickable, IUpgradeable, IZoomable
+    public class ResourceBuilding : MonoBehaviour, ITickable, IUpgradeable, IZoomable // Think about divide into different modules
     {
         [Header("Tick parameters")]
         [SerializeField] private float _tickInterval = 0;
