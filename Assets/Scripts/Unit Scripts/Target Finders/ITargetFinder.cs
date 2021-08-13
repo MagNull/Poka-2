@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Unit_Scripts.Unit_State_Machine;
 using UnityEngine;
 
-namespace Unit_Scripts
+namespace Unit_Scripts.Target_Finders
 {
     public interface ITargetFinder
     {

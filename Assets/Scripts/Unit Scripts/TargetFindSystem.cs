@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unit_Scripts.Target_Finders;
 using Unit_Scripts.Unit_State_Machine;
 using UnityEngine;
 using Zenject;
@@ -17,14 +18,20 @@ namespace Unit_Scripts
         
         [Inject]
         private UnitsLists _unitsLists;
+        
+        [Space, Header("Options for archer target finder")]
+        [SerializeField] private float _minFindDistance;
+        [SerializeField] private float _maxFindDistance;
 
         private void Awake()
         {
             _unitStateBehaviour = GetComponent<UnitStateBehaviour>();
             _targetFinders = new List<ITargetFinder>()
             {
-                new InfantryTargetFinder()
+                new InfantryTargetFinder(),
+                new ArcherTargetFinder(_minFindDistance,_maxFindDistance)
             };
+            ((ArcherTargetFinder) _targetFinders[1]).StateSwitcher = GetComponent<IUnitsStateSwitcher>();
             foreach (var targetFinder in _targetFinders)
             {
                 InitTargetFinder(targetFinder);
@@ -36,7 +43,8 @@ namespace Unit_Scripts
         {
             return _unitType switch
             {
-                UnitType.INFANTRY => _targetFinders[0]
+                UnitType.INFANTRY => _targetFinders[0],
+                UnitType.ARCHER => _targetFinders[1]
             };
         }
         

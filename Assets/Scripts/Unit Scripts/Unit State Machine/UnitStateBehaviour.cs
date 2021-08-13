@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unit_Scripts.Target_Finders;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Unit_Scripts.Unit_State_Machine
 {
-    [RequireComponent(typeof(NavMeshAgent), typeof(TargetFindSystem))]
+    [RequireComponent(typeof(NavMeshAgent), typeof(TargetFindSystem))][SelectionBase]
     public class UnitStateBehaviour : MonoBehaviour, IUnitsStateSwitcher
     {
+        [SerializeField] private float _speed = 1;
+        [SerializeField] private float _stoppingDistance;
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
         
@@ -27,6 +30,7 @@ namespace Unit_Scripts.Unit_State_Machine
         private void Start()
         {
             _targetFinder = _targetFindSystem.GetTargetFinder();
+            _navMeshAgent.stoppingDistance = _stoppingDistance;
             InitStates();
         }
 
@@ -34,8 +38,8 @@ namespace Unit_Scripts.Unit_State_Machine
         {
             _states = new List<UnitsState>()
             {
-                new IdleState(() => _targetFinder.GetTarget(), _animator, this),
-                new MovingState(_navMeshAgent, () => _targetFinder.GetTarget(), _animator, this, 3),
+                new IdleState(() => _targetFinder.GetTarget(), _animator, this, _navMeshAgent),
+                new MovingState(_navMeshAgent, () => _targetFinder.GetTarget(), _animator, this, _speed),
                 new AttackingState(_navMeshAgent, () => _targetFinder.GetTarget(), _animator, this),
                 new DyingState(() => _targetFinder.GetTarget(), _animator, this)
             };

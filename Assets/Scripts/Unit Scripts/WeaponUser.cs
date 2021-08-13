@@ -1,25 +1,31 @@
 using System;
 using DG.Tweening;
+using Unit_Scripts.Target_Finders;
 using UnityEngine;
+using Weapons_Scripts;
 
 namespace Unit_Scripts
 {
     [RequireComponent(typeof(TargetFindSystem))]
-    public class DamageDealer : MonoBehaviour
+    public class WeaponUser : MonoBehaviour
     {
-        [SerializeField] private int _damage = 1;
+        private IWeapon _weapon;
         
         private ITargetFinder _targetFinder;
 
         private void Start()
         {
             _targetFinder = GetComponent<TargetFindSystem>().GetTargetFinder();
+            _weapon = GetComponentInChildren<IWeapon>();
         }
 
-        public void DealDamage()
+        public void UseWeapon()
         {
-            _targetFinder.GetTarget().GetComponent<Health>().TakeDamage(_damage);
-            LookAtTarget();
+            if (_targetFinder.GetTarget())
+            {
+                _weapon.Use(_targetFinder.GetTarget().GetComponent<Health>());
+                LookAtTarget();
+            }
         }
 
         private void LookAtTarget()

@@ -1,11 +1,13 @@
 using Unit_Scripts;
-using UnityEngine;
 using Zenject;
 
-public class UnitsListsInstaller : MonoInstaller
+namespace Installers
 {
-    public override void InstallBindings()
+    public class UnitsListsInstaller : MonoInstaller
     {
-        Container.Bind<UnitsLists>().FromNew().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<UnitsLists>().FromNew().AsSingle();
+        }
     }
 }

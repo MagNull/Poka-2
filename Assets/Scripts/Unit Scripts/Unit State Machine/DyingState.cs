@@ -8,7 +8,6 @@ namespace Unit_Scripts.Unit_State_Machine
 {
     public class DyingState : UnitsState
     {
-        [Inject] private UnitsLists _unitsLists;
         private int _dieToHash;
         
         public DyingState(Func<Transform> getTarget, Animator animator, 

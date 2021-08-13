@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1383994476759950956}
   - component: {fileID: 1383994476759950957}
   m_Layer: 5
-  m_Name: Upgrade
+  m_Name: Upgrade Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
