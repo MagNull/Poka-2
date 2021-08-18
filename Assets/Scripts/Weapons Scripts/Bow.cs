@@ -5,16 +5,13 @@ namespace Weapons_Scripts
 {
     public class Bow : MonoBehaviour, IWeapon
     {
-        [SerializeField] private Transform _shootPoint;
+        [SerializeField] protected Transform _shootPoint;
         [SerializeField] private Arrow _arrowPrefab;
-        [SerializeField] private float _shootAngle = 10;
-        [SerializeField] private Vector3 _targetPositionFallacy;
-        [SerializeField] private float _arrowFlyTime = 2;
+        [SerializeField] protected Vector3 _targetPositionFallacy;
+        [SerializeField] protected float _arrowFlyTime = 2;
         
         public void Use(Health targetHealth)
         {
-            _shootPoint.localRotation = Quaternion.Euler(Vector3.up * _shootAngle);
-            
             Rigidbody arrow = Instantiate(_arrowPrefab, _shootPoint.position, _shootPoint.rotation)
                 .GetComponent<Rigidbody>();
             arrow.velocity = CalculateArrowVelocity(targetHealth);
@@ -22,7 +19,7 @@ namespace Weapons_Scripts
         }
         
 
-        private Vector3 CalculateArrowVelocity(Health target)
+        protected virtual Vector3 CalculateArrowVelocity(Health target)
         {
             if(target != null)
             {
@@ -30,7 +27,6 @@ namespace Weapons_Scripts
                                     (Physics.gravity * _arrowFlyTime * _arrowFlyTime) / 2) / _arrowFlyTime;
                 return velocity;
             }
-            Debug.LogError($"Target of {gameObject.name} is null");
             return Vector3.zero;
         
         }
