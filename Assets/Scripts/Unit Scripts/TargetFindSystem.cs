@@ -36,6 +36,8 @@ namespace Unit_Scripts
             {
                 InitTargetFinder(targetFinder);
             }
+
+            InitUnitsLists();
         }
 
 
@@ -47,18 +49,28 @@ namespace Unit_Scripts
                 UnitType.ARCHER => _targetFinders[1]
             };
         }
+
+        private void InitUnitsLists()
+        {
+            if (_isEnemy)
+            {
+                _unitsLists.EnemyUnits.Add(_unitStateBehaviour.gameObject);
+            }
+            else
+            {
+                _unitsLists.PlayerUnits.Add(_unitStateBehaviour.gameObject);
+            }
+        }
         
         private void InitTargetFinder(ITargetFinder targetFinder)
         {
             targetFinder.Origin = transform;
             if (_isEnemy)
             {
-                _unitsLists.EnemyUnits.Add(_unitStateBehaviour.gameObject);
                 targetFinder.Units = _unitsLists.PlayerUnits;
             }
             else
             {
-                _unitsLists.PlayerUnits.Add(_unitStateBehaviour.gameObject);
                 targetFinder.Units = _unitsLists.EnemyUnits;
             }
         }

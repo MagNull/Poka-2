@@ -22,6 +22,7 @@ namespace Unit_Scripts.Target_Finders
         public Transform GetTarget()
         {
             if (Units.Count == 0) return null;
+            
             var filteredList = Units
                 .Select(p => new
                 {
@@ -34,9 +35,9 @@ namespace Unit_Scripts.Target_Finders
             var unit = filteredList
                 .Aggregate((p1, p2) => p1.Distance < p2.Distance ? p1 : p2)
                 .Unit.transform;
-            
             if ((unit.position - Origin.transform.position).sqrMagnitude >
                 _maxFindDistance * _maxFindDistance) StateSwitcher.SwitchState<MovingState>();
+            
             return unit;
         }
 

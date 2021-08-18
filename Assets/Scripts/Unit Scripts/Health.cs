@@ -31,6 +31,7 @@ namespace Unit_Scripts
         public void Die()
         {
             Destroy(gameObject);
+            //gameObject.SetActive(false);
         }
     }
 }

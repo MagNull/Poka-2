@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Unit_Scripts.Unit_State_Machine;
 using UnityEngine;
 
 namespace Unit_Scripts
 {
+    [Serializable]
     public class UnitsLists //Think about divide units by type into different lists
     {
         public List<GameObject> PlayerUnits = new List<GameObject>();

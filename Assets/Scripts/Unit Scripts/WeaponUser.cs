@@ -32,7 +32,6 @@ namespace Unit_Scripts
         {
             if(_targetFinder.GetTarget())transform.DORotate(
                 Quaternion.LookRotation(_targetFinder.GetTarget().position - transform.position).eulerAngles, 1);
-           
         }
     }
 }
