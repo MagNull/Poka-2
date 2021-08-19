@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4061034484959666038}
   - component: {fileID: 52333176200132807}
   - component: {fileID: 8959018431773473112}
+  - component: {fileID: 5677081321178983115}
   m_Layer: 6
   m_Name: Player Arrow
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315995020677192875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.621877, y: -3.8291826, z: 17.991295}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2190308366750974346}
@@ -62,6 +63,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
+--- !u!65 &5677081321178983115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315995020677192875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1830907, y: 0.1915524, z: 0.98182297}
+  m_Center: {x: 0, y: -0.0077055693, z: 0.01445961}
 --- !u!1 &2190308366751210922
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +87,6 @@ GameObject:
   - component: {fileID: 2190308366750974346}
   - component: {fileID: 2190308366754398634}
   - component: {fileID: 2190308366753399658}
-  - component: {fileID: 8803068186906185699}
   m_Layer: 6
   m_Name: Arrow Model
   m_TagString: Untagged
@@ -144,16 +157,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8803068186906185699
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2190308366751210922}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1830907, y: 0.9775491, z: 0.18231949}
-  m_Center: {x: -0.0011544675, y: -0.013235047, z: -0.0057682544}
