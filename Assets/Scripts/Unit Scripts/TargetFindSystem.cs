@@ -16,14 +16,19 @@ namespace Unit_Scripts
         private UnitStateBehaviour _unitStateBehaviour;
         private List<ITargetFinder> _targetFinders;
         
-        [Inject]
         private UnitsLists _unitsLists;
         
         [Space, Header("Options for archer target finder")]
         [SerializeField] private float _minFindDistance;
         [SerializeField] private float _maxFindDistance;
-
-        private void Awake()
+        
+        [Inject]
+        public void Construct(UnitsLists unitsLists)
+        {
+            _unitsLists = unitsLists;
+        }
+        
+        public void Start()
         {
             _unitStateBehaviour = GetComponent<UnitStateBehaviour>();
             _targetFinders = new List<ITargetFinder>()

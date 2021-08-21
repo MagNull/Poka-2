@@ -1,20 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unit_Scripts;
 using UnityEngine;
-using Weapons_Scripts;
 
-public class Crossbow : Bow
+namespace Weapons_Scripts
 {
-    protected override Vector3 CalculateArrowVelocity(Health target)
+    public class Crossbow : Bow
     {
-        if (target != null)
+        protected override Vector3 CalculateArrowVelocity(Health target)
         {
-            return 2 * (target.transform.position - transform.position + _targetPositionFallacy) / _arrowFlyTime;
-        }
+            if (target != null)
+            {
+                return 2 * (target.transform.position - transform.position + _targetPositionFallacy) / _arrowFlyTime;
+            }
 
-        return Vector3.zero;
-    }
+            return Vector3.zero;
+        }
     
+    }
 }

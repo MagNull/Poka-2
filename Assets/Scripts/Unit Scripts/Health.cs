@@ -22,8 +22,7 @@ namespace Unit_Scripts
             _bloodVFX.Play();
             if (_health <= 0)
             {
-                _unitsLists.PlayerUnits.Remove(gameObject);
-                _unitsLists.EnemyUnits.Remove(gameObject);
+                OnDestroy();
                 GetComponent<IUnitsStateSwitcher>().SwitchState<DyingState>();
             }
         }
@@ -32,6 +31,12 @@ namespace Unit_Scripts
         {
             Destroy(gameObject);
             //gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            _unitsLists.PlayerUnits.Remove(gameObject);
+            _unitsLists.EnemyUnits.Remove(gameObject);
         }
     }
 }
